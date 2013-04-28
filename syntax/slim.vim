@@ -66,6 +66,8 @@ syn match  slimInterpolationEscape "\\\@<!\%(\\\\\)*\\\%(\\\ze#{\|#\ze{\)"
 syn region slimRuby matchgroup=slimRubyOutputChar start="\s*[=]\==[']\=" skip=",\s*$" end="$" contained contains=@slimRubyTop keepend
 syn region slimRuby matchgroup=slimRubyChar       start="\s*-"           skip=",\s*$" end="$" contained contains=@slimRubyTop keepend
 
+syn region slimJavascriptFilter matchgroup=slimJSFilter start="^\z(\s*\):javascript\s*$" end="^\%(\z1 \| *$\)\@!" contains=@htmlJavaScript keepend
+
 syn match slimComment /^\(\s*\)[/].*\(\n\1\s.*\)*/ contains=slimTodo
 syn match slimText    /^\(\s*\)[`|'].*\(\n\1\s.*\)*/
 
@@ -87,6 +89,7 @@ hi def link slimId                        Identifier
 hi def link slimIdChar                    Identifier
 hi def link slimInnerAttrString           String
 hi def link slimInterpolationDelimiter    Delimiter
+hi def link slimJSFilter                  PreProc
 hi def link slimRubyChar                  Special
 hi def link slimRubyOutputChar            Special
 hi def link slimText                      String
